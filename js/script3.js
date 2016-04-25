@@ -1,6 +1,10 @@
 /**
  * Created by Carmen on 19/04/2016.
  */
+
+//variable global para almacenar la hora y los minutos de la alarma
+var alarma;
+
 /**
  * funcion para mostrar la hora en el div correspondiente
  */
@@ -29,8 +33,6 @@ function comprobarAlarma() {
 
     // se obtiene la hora actual
     var ahora = new Date();
-
-    var alarma = fijarAlarma();
 
     //capturo el div donde va la imagen
 
@@ -64,10 +66,13 @@ function fijarAlarma(hora, minutos) {
 
     // capturamos la hora del sistema para la alarma y para comprobar
     var ahora = new Date();
-    var alarma = new Date();
+    alarma = new Date();
 
     //se fija la alarma con los parametros que pasamos
     alarma.setHours(hora, minutos);
+
+    console.log(ahora);
+    console.log(alarma);
 
     //se prepara para comprobar por primera vez
 
@@ -98,10 +103,13 @@ function activarAlarma() {
 
     if (horaAlarma != "") {
         hora = horaAlarma;
+
     }
     if (minutoAlarma != "") {
         minuto = minutoAlarma;
     }
+    console.log(hora);
+    console.log(minuto);
 
     fijarAlarma(hora, minuto);
 
@@ -132,7 +140,7 @@ function init() {
     var btnActivar = document.getElementById('activar');
     var btnDesactivar = document.getElementById('desactivar');
 
-    btnActivar.addEventListener('click', activarAlarma, false);
+    btnActivar.addEventListener('click', activarAlarma);
     btnDesactivar.addEventListener('click', desactivarAlarma, false);
 
 
